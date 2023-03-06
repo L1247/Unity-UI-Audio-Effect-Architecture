@@ -1,6 +1,7 @@
 #region
 
 using TMPro;
+using UnityEffectArchitecture.Core.Misc;
 using UnityEngine;
 
 #endregion
@@ -18,6 +19,10 @@ namespace UnityEffectArchitecture.Core
 
     #region Private Variables
 
+        private IAudioSystem audioSystem;
+
+        private IEffectSpawner effectSpawner;
+
         [SerializeField]
         private TMP_Text healthAmountText;
 
@@ -25,25 +30,38 @@ namespace UnityEffectArchitecture.Core
         private int health = 100;
 
         [SerializeField]
-        private AudioSource audioSource;
+        private AudioSystem audioSystemPrefab;
 
         [SerializeField]
-        private AudioClip damageClip;
+        private EffectSpawner effectSpawnerPrefab;
+
+    #endregion
+
+    #region Unity events
+
+        private void Start()
+        {
+            audioSystem   = Instantiate(audioSystemPrefab);
+            effectSpawner = Instantiate(effectSpawnerPrefab);
+        }
 
     #endregion
 
     #region Public Methods
 
-        public void Init()
+        public void Init(IAudioSystem audioSystem , IEffectSpawner effectSpawner)
         {
-            healthAmountText = gameObject.AddComponent<TextMeshProUGUI>();
+            healthAmountText   = gameObject.AddComponent<TextMeshProUGUI>();
+            this.audioSystem   = audioSystem;
+            this.effectSpawner = effectSpawner;
         }
 
         public void TakeDamage()
         {
             health                = Health - 10;
             HealthAmountText.text = Health.ToString();
-            audioSource.PlayOneShot(damageClip);
+            audioSystem.PlayHurtAudio();
+            effectSpawner.SpawnHurtEffect(gameObject);
         }
 
     #endregion
