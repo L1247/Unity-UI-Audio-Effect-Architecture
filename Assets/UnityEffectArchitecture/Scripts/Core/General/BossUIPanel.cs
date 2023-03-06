@@ -11,7 +11,7 @@ namespace UnityEffectArchitecture.General
     {
     #region Public Methods
 
-        void UpdateHealthUI(int healthAmount);
+        void UpdateHealthUI(int currentHealthAmount);
 
     #endregion
     }
@@ -27,9 +27,9 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void UpdateHealthUI(int healthAmount)
+        public void UpdateHealthUI(int currentHealthAmount)
         {
-            healthAmountText.text = healthAmount.ToString();
+            healthAmountText.text = currentHealthAmount.ToString();
         }
 
     #endregion

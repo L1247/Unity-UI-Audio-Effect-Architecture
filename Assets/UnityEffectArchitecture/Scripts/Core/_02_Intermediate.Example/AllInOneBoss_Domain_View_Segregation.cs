@@ -53,10 +53,19 @@ namespace UnityEffectArchitecture._02_Intermediate
 
         public override void TakeDamage()
         {
+        #region Domain Logic
+
             health = Health - 10;
-            bossUIPanel.UpdateHealthUI(health);
-            audioSystem.PlayHurtAudio();
-            effectSpawner.SpawnHurtEffect(gameObject);
+
+        #endregion
+
+        #region Defensive Programming , Do effect stuffs
+
+            bossUIPanel?.UpdateHealthUI(health);
+            audioSystem?.PlayHurtAudio();
+            effectSpawner?.SpawnHurtEffect(gameObject);
+
+        #endregion
         }
 
     #endregion

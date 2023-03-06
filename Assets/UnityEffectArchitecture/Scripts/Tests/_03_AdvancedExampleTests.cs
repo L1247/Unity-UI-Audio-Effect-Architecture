@@ -1,7 +1,9 @@
 #region
 
+using NSubstitute;
 using NUnit.Framework;
 using UnityEffectArchitecture._03_Advanced;
+using UnityEffectArchitecture.General;
 using UnityEngine;
 
 #endregion
@@ -14,16 +16,19 @@ public class _03_AdvancedExampleTests
     [Test]
     public void Init()
     {
-        var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_Effect>();
+        var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_EffectHandler>();
         Assert.AreEqual(100 , bossCouplingWithAbstractEffect.Health);
     }
 
     [Test]
     public void TakeDamage()
     {
-        var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_Effect>();
+        var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_EffectHandler>();
+        var bossEffectHandler              = Substitute.For<BossEffectHandler>();
+        bossCouplingWithAbstractEffect.Construct(bossEffectHandler);
         bossCouplingWithAbstractEffect.TakeDamage();
         Assert.AreEqual(90 , bossCouplingWithAbstractEffect.Health);
+        bossEffectHandler.Received(1).OnTakeDamage(90 , bossCouplingWithAbstractEffect.gameObject);
     }
 
 #endregion

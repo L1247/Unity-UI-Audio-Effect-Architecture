@@ -56,7 +56,7 @@ namespace UnityEffectArchitecture._01_Beginner.Example
 
         #endregion
 
-        #region Defensive Programming
+        #region Defensive Programming , Do effect stuffs
 
             audioSource?.PlayOneShot(hurtClip);
             if (hurtEffect is not null) Instantiate(hurtEffect , gameObject.transform.position , Quaternion.identity);

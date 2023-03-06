@@ -19,21 +19,9 @@ namespace UnityEffectArchitecture.Scripts.Core
         [SerializeField]
         private Button takeDamageButton;
 
-        [SerializeField]
-        private AudioSystem audioSystemPrefab;
-
-        [SerializeField]
-        private EffectSpawner effectSpawnerPrefab;
-
     #endregion
 
     #region Unity events
-
-        private void Awake()
-        {
-            Instantiate(audioSystemPrefab);
-            Instantiate(effectSpawnerPrefab);
-        }
 
         private void Start()
         {
