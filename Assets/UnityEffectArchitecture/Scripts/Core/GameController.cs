@@ -1,7 +1,7 @@
 #region
 
 using rStarUtility.Util.Extensions;
-using UnityEffectArchitecture.Core;
+using UnityEffectArchitecture.General;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,19 +13,40 @@ namespace UnityEffectArchitecture.Scripts.Core
     {
     #region Private Variables
 
-        [SerializeField]
-        private DomainCouplingView domainCouplingView;
+        [SerializeReference]
+        private BossBehavior bossBehavior;
 
         [SerializeField]
         private Button takeDamageButton;
+
+        [SerializeField]
+        private AudioSystem audioSystemPrefab;
+
+        [SerializeField]
+        private EffectSpawner effectSpawnerPrefab;
 
     #endregion
 
     #region Unity events
 
+        private void Awake()
+        {
+            Instantiate(audioSystemPrefab);
+            Instantiate(effectSpawnerPrefab);
+        }
+
         private void Start()
         {
-            takeDamageButton.BindClick(() => domainCouplingView.TakeDamage());
+            takeDamageButton.BindClick(() => bossBehavior.TakeDamage());
+        }
+
+    #endregion
+
+    #region Private Methods
+
+        private void OnValidate()
+        {
+            bossBehavior ??= FindFirstObjectByType<BossBehavior>();
         }
 
     #endregion

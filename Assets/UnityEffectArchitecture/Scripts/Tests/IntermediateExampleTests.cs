@@ -2,13 +2,13 @@
 
 using NSubstitute;
 using NUnit.Framework;
-using UnityEffectArchitecture.Core;
-using UnityEffectArchitecture.Core.Misc;
+using UnityEffectArchitecture._02_Intermediate;
+using UnityEffectArchitecture.General;
 using UnityEngine;
 
 #endregion
 
-public class DomainCouplingVIewTests
+public class IntermediateExampleTests
 {
 #region Test Methods
 
@@ -16,8 +16,6 @@ public class DomainCouplingVIewTests
     public void Init()
     {
         var domainCouplingView = new GameObject().AddComponent<DomainCouplingView>();
-        domainCouplingView.Init(Substitute.For<IAudioSystem>() , Substitute.For<IEffectSpawner>());
-        Assert.IsNotNull(domainCouplingView.HealthAmountText);
         Assert.AreEqual(100 , domainCouplingView.Health);
     }
 
@@ -27,10 +25,13 @@ public class DomainCouplingVIewTests
         var domainCouplingView = new GameObject().AddComponent<DomainCouplingView>();
         var audioSystem        = Substitute.For<IAudioSystem>();
         var effectSpawner      = Substitute.For<IEffectSpawner>();
-        domainCouplingView.Init(audioSystem , effectSpawner);
+        var bossUIPanel        = Substitute.For<IBossUIPanel>();
+        domainCouplingView.Init(bossUIPanel , audioSystem , effectSpawner);
+
         domainCouplingView.TakeDamage();
+
         Assert.AreEqual(90 , domainCouplingView.Health);
-        Assert.AreEqual("90" , domainCouplingView.HealthAmountText.text);
+        bossUIPanel.Received(1).UpdateHealthUI(90);
         audioSystem.Received(1).PlayHurtAudio();
         effectSpawner.Received(1).SpawnHurtEffect(domainCouplingView.gameObject);
     }

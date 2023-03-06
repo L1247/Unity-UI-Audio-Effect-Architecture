@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace UnityEffectArchitecture.Core.Misc
+namespace UnityEffectArchitecture.General
 {
     public interface IAudioSystem
     {
