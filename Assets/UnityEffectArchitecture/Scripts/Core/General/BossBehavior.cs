@@ -10,9 +10,9 @@ namespace UnityEffectArchitecture.General
     [Serializable]
     public abstract class BossBehavior : MonoBehaviour
     {
-    #region Private Variables
+    #region Public Variables
 
-        private int Health { get; }
+        public abstract int Health { get; }
 
     #endregion
 

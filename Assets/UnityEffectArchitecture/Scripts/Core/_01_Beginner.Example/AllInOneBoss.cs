@@ -13,6 +13,12 @@ namespace UnityEffectArchitecture._01_Beginner.Example
     /// </summary>
     public class AllInOneBoss : BossBehavior
     {
+    #region Public Variables
+
+        public override int Health => health;
+
+    #endregion
+
     #region Private Variables
 
         private AudioSource audioSource;
@@ -44,10 +50,19 @@ namespace UnityEffectArchitecture._01_Beginner.Example
 
         public override void TakeDamage()
         {
+        #region Domain Logic
+
             health -= 10;
-            audioSource.PlayOneShot(hurtClip);
-            Instantiate(hurtEffect , gameObject.transform.position , Quaternion.identity);
-            healthAmountText.text = health.ToString();
+
+        #endregion
+
+        #region Defensive Programming
+
+            audioSource?.PlayOneShot(hurtClip);
+            if (hurtEffect is not null) Instantiate(hurtEffect , gameObject.transform.position , Quaternion.identity);
+            if (healthAmountText) healthAmountText.text = health.ToString();
+
+        #endregion
         }
 
     #endregion

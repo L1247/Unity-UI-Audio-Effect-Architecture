@@ -14,7 +14,7 @@ namespace UnityEffectArchitecture._02_Intermediate
     {
     #region Public Variables
 
-        public int Health => health;
+        public override int Health => health;
 
     #endregion
 
