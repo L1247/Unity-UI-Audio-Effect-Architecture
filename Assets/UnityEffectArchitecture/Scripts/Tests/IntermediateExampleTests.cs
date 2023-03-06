@@ -15,14 +15,14 @@ public class IntermediateExampleTests
     [Test]
     public void Init()
     {
-        var domainCouplingView = new GameObject().AddComponent<DomainCouplingView>();
+        var domainCouplingView = new GameObject().AddComponent<AllInOneBoss_Domain_View_Segregation>();
         Assert.AreEqual(100 , domainCouplingView.Health);
     }
 
     [Test]
     public void TakeDamage()
     {
-        var domainCouplingView = new GameObject().AddComponent<DomainCouplingView>();
+        var domainCouplingView = new GameObject().AddComponent<AllInOneBoss_Domain_View_Segregation>();
         var audioSystem        = Substitute.For<IAudioSystem>();
         var effectSpawner      = Substitute.For<IEffectSpawner>();
         var bossUIPanel        = Substitute.For<IBossUIPanel>();

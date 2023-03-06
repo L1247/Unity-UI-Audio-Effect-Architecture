@@ -1,6 +1,5 @@
 #region
 
-using System;
 using UnityEffectArchitecture.General;
 using UnityEngine;
 
@@ -8,8 +7,10 @@ using UnityEngine;
 
 namespace UnityEffectArchitecture._02_Intermediate
 {
-    [Serializable]
-    public class DomainCouplingView : BossBehavior
+    /// <summary>
+    ///     interfaces and testable
+    /// </summary>
+    public class AllInOneBoss_Domain_View_Segregation : BossBehavior
     {
     #region Public Variables
 
