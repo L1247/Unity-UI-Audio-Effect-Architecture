@@ -22,6 +22,7 @@ public class _02_AdvancedExampleTests
     public void TakeDamage()
     {
         var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_Effect>();
+        bossCouplingWithAbstractEffect.TakeDamage();
         Assert.AreEqual(90 , bossCouplingWithAbstractEffect.Health);
     }
 
