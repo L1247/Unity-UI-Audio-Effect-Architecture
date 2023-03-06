@@ -7,7 +7,7 @@ using UnityEngine;
 #endregion
 
 [TestFixture]
-public class _02_AdvancedExampleTests
+public class _03_AdvancedExampleTests
 {
 #region Test Methods
 

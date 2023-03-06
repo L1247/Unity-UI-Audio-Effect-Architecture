@@ -8,7 +8,7 @@ using UnityEngine;
 
 #endregion
 
-public class _03_IntermediateExampleTests
+public class _02_IntermediateExampleTests
 {
 #region Test Methods
 
