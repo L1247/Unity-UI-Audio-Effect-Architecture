@@ -3,7 +3,8 @@
   "rootNamespace": "",
   "references": [
     "UnityEffectArchitecture.Core",
-    "Unity.TextMeshPro"
+    "Unity.TextMeshPro",
+    "rStarUtility.Generic.Infrastructure"
   ],
   "includePlatforms": [
     "Editor"

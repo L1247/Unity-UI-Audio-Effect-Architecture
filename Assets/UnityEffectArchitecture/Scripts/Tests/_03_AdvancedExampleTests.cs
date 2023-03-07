@@ -28,7 +28,7 @@ public class _03_AdvancedExampleTests
         bossCouplingWithAbstractEffect.Construct(bossEffectHandler);
         bossCouplingWithAbstractEffect.TakeDamage();
         Assert.AreEqual(90 , bossCouplingWithAbstractEffect.Health);
-        bossEffectHandler.Received(1).OnTakeDamage(90 , bossCouplingWithAbstractEffect.gameObject);
+        bossEffectHandler.Received(1).BossHurtEffect(90 , bossCouplingWithAbstractEffect.gameObject);
     }
 
 #endregion

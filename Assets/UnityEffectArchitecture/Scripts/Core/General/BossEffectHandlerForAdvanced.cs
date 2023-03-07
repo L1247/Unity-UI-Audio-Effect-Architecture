@@ -29,7 +29,7 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void OnTakeDamage(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , GameObject boss)
         {
             bossUIPanel?.UpdateHealthUI(currentHealth);
             audioSystem?.PlayHurtAudio();

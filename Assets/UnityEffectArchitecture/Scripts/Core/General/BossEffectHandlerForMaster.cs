@@ -27,9 +27,9 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void OnTakeDamage(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , GameObject boss)
         {
-            bossEffectHandler.OnTakeDamage(currentHealth , boss);
+            bossEffectHandler.BossHurtEffect(currentHealth , boss);
             audioSystem.PlayHurtAudio();
         }
 
@@ -55,7 +55,7 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void OnTakeDamage(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , GameObject boss)
         {
             bossUIPanel.UpdateHealthUI(currentHealth);
         }

@@ -3,6 +3,7 @@
 using rStarUtility.Util.Extensions;
 using UnityEffectArchitecture.General;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 #endregion
@@ -25,6 +26,7 @@ namespace UnityEffectArchitecture.Scripts.Core
 
         private void Start()
         {
+            Assert.IsNotNull(bossBehavior , "bossBehavior is null");
             takeDamageButton.BindClick(() => bossBehavior.TakeDamage());
         }
 

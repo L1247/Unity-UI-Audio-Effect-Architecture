@@ -1,7 +1,6 @@
 #region
 
 using UnityEffectArchitecture.General;
-using UnityEngine;
 using Zenject;
 
 #endregion
@@ -20,7 +19,6 @@ namespace UnityEffectArchitecture._03_Advanced
 
         private BossEffectHandler bossEffectHandler;
 
-        [SerializeField]
         private int health = 100;
 
     #endregion
@@ -43,7 +41,7 @@ namespace UnityEffectArchitecture._03_Advanced
 
         #region Defensive Programming , Do effect stuffs
 
-            bossEffectHandler?.OnTakeDamage(Health , gameObject);
+            bossEffectHandler?.BossHurtEffect(Health , gameObject);
 
         #endregion
         }

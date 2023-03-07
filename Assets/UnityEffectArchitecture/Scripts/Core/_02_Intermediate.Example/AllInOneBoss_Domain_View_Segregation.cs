@@ -1,7 +1,6 @@
 #region
 
 using UnityEffectArchitecture.General;
-using UnityEngine;
 
 #endregion
 
@@ -26,7 +25,6 @@ namespace UnityEffectArchitecture._02_Intermediate
 
         private IBossUIPanel bossUIPanel;
 
-        [SerializeField]
         private int health = 100;
 
     #endregion

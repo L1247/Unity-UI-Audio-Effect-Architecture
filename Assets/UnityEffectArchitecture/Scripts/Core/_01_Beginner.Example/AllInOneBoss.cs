@@ -23,7 +23,6 @@ namespace UnityEffectArchitecture._01_Beginner.Example
 
         private AudioSource audioSource;
 
-        [SerializeField]
         private int health = 100;
 
         [SerializeField]
