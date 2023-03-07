@@ -7,7 +7,7 @@ using Zenject;
 
 namespace UnityEffectArchitecture._03_Advanced
 {
-    public class GameInstaller : MonoInstaller
+    public class AdvanceGameInstaller : MonoInstaller
     {
     #region Public Methods
 
