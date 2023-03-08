@@ -1,6 +1,8 @@
 #region
 
+using NSubstitute;
 using NUnit.Framework;
+using UnityEffectArchitecture.General;
 using UnityEffectArchitecture.MVP.Example;
 using UnityEngine;
 
@@ -22,12 +24,20 @@ public class MVPExampleTests
     [Test]
     public void TakeDamage()
     {
+        var audioSystem   = Substitute.For<IAudioSystem>();
+        var effectSpawner = Substitute.For<IEffectSpawner>();
+        var bossUIPanel   = Substitute.For<IBossUIPanel>();
+
         var bossBehaviourWithMvp = new GameObject().AddComponent<BossBehaviour_With_MVP_Presenter>();
-        bossBehaviourWithMvp.Init();
+        bossBehaviourWithMvp.Init(audioSystem , effectSpawner , bossUIPanel);
 
         bossBehaviourWithMvp.TakeDamage();
 
         Assert.AreEqual(90 , bossBehaviourWithMvp.Health);
+
+        bossUIPanel.Received(1).UpdateHealthUI(90);
+        audioSystem.Received(1).PlayHurtAudio();
+        effectSpawner.Received(1).SpawnHurtEffect(bossBehaviourWithMvp.gameObject);
     }
 
 #endregion

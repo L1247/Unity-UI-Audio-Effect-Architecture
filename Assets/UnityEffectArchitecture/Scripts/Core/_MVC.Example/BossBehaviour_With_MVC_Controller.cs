@@ -32,9 +32,9 @@ namespace UnityEffectArchitecture._MVC.Example
 
     #region Public Methods
 
-        public void Init()
+        public void Init(IAudioSystem audioSystem = null , IEffectSpawner effectSpawner = null , IBossUIPanel bossUIPanel = null)
         {
-            var view = new View(gameObject);
+            var view = new View(gameObject , audioSystem , effectSpawner , bossUIPanel);
             model = new Model(view);
         }
 
@@ -61,12 +61,12 @@ namespace UnityEffectArchitecture._MVC.Example
 
     #region Constructor
 
-        public View(GameObject gameObject)
+        public View(GameObject gameObject , IAudioSystem audio_System , IEffectSpawner effect_Spawner , IBossUIPanel boss_UI_Panel)
         {
             this.gameObject = gameObject;
-            bossUIPanel     = Object.FindFirstObjectByType<BossUIPanel>();
-            audioSystem     = Object.FindFirstObjectByType<AudioSystem>();
-            effectSpawner   = Object.FindFirstObjectByType<EffectSpawner>();
+            bossUIPanel     = boss_UI_Panel ?? Object.FindFirstObjectByType<BossUIPanel>();
+            audioSystem     = audio_System ?? Object.FindFirstObjectByType<AudioSystem>();
+            effectSpawner   = effect_Spawner ?? Object.FindFirstObjectByType<EffectSpawner>();
         }
 
     #endregion

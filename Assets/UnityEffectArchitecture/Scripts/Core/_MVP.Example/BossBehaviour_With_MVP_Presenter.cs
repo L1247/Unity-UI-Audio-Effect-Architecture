@@ -34,10 +34,10 @@ namespace UnityEffectArchitecture.MVP.Example
 
     #region Public Methods
 
-        public void Init()
+        public void Init(IAudioSystem audioSystem = null , IEffectSpawner effectSpawner = null , IBossUIPanel bossUIPanel = null)
         {
             model = new Model();
-            view  = new View(gameObject);
+            view  = new View(gameObject , audioSystem , effectSpawner , bossUIPanel);
             model.CurrentHp.Skip(1).Subscribe(hp => view.UpdateHealth(hp));
         }
 
@@ -64,12 +64,12 @@ namespace UnityEffectArchitecture.MVP.Example
 
     #region Constructor
 
-        public View(GameObject gameObject)
+        public View(GameObject gameObject , IAudioSystem audio_System , IEffectSpawner effect_Spawner , IBossUIPanel boss_UIPanel)
         {
             this.gameObject = gameObject;
-            bossUIPanel     = Object.FindFirstObjectByType<BossUIPanel>();
-            audioSystem     = Object.FindFirstObjectByType<AudioSystem>();
-            effectSpawner   = Object.FindFirstObjectByType<EffectSpawner>();
+            bossUIPanel     = boss_UIPanel ?? Object.FindFirstObjectByType<BossUIPanel>();
+            audioSystem     = audio_System ?? Object.FindFirstObjectByType<AudioSystem>();
+            effectSpawner   = effect_Spawner ?? Object.FindFirstObjectByType<EffectSpawner>();
         }
 
     #endregion

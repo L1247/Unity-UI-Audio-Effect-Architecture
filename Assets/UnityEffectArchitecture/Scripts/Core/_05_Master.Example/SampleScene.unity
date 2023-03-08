@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &182527259 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2025924643387549085, guid: 2b752b07a15e4ea40812fa2f08bfff27, type: 3}
+  m_PrefabInstance: {fileID: 2025924643948088595}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!108 &705507994 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 2025924644383588233, guid: 2b752b07a15e4ea40812fa2f08bfff27, type: 3}
@@ -137,7 +148,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1298597125}
-  - component: {fileID: 1298597127}
+  - component: {fileID: 1298597126}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -160,7 +171,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1298597127
+--- !u!114 &1298597126
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -169,14 +180,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1298597123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Script: {fileID: 11500000, guid: 69c5a08fc7c241898c392b9afd4f8b08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _components: []
-  _identifier: 
-  _useSceneContext: 0
-  _context: {fileID: 0}
-  _bindType: 0
+  hurtClip: {fileID: 8300000, guid: b77160a11798cb642afd5cff733be759, type: 3}
+  healthAmountText: {fileID: 182527259}
+  hurtEffect: {fileID: 1781108399388101742, guid: a2eeb1498527e524f840a1e443f44705, type: 3}
 --- !u!1 &1312741686
 GameObject:
   m_ObjectHideFlags: 0
