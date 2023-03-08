@@ -1,7 +1,7 @@
 #region
 
 using NUnit.Framework;
-using UnityEffectArchitecture.Scripts.Core._MVC.Example;
+using UnityEffectArchitecture._MVC.Example;
 using UnityEngine;
 
 #endregion

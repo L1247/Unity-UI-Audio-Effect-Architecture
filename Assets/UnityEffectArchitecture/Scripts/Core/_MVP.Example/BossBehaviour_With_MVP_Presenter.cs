@@ -1,23 +1,25 @@
 #region
 
+using UniRx;
 using UnityEffectArchitecture.General;
 using UnityEngine;
 
 #endregion
 
-namespace UnityEffectArchitecture._MVC.Example
+namespace UnityEffectArchitecture.MVP.Example
 {
-    public class BossBehaviour_With_MVC_Controller : BossBehavior
+    public class BossBehaviour_With_MVP_Presenter : BossBehavior
     {
     #region Public Variables
 
-        public override int Health => model.Health;
+        public override int Health => model.CurrentHp.Value;
 
     #endregion
 
     #region Private Variables
 
         private Model model;
+        private View  view;
 
     #endregion
 
@@ -34,8 +36,9 @@ namespace UnityEffectArchitecture._MVC.Example
 
         public void Init()
         {
-            var view = new View(gameObject);
-            model = new Model(view);
+            model = new Model();
+            view  = new View(gameObject);
+            model.CurrentHp.Skip(1).Subscribe(hp => view.UpdateHealth(hp));
         }
 
         public override void TakeDamage()
@@ -87,22 +90,15 @@ namespace UnityEffectArchitecture._MVC.Example
     {
     #region Public Variables
 
-        public int Health { get; private set; }
-
-    #endregion
-
-    #region Private Variables
-
-        private readonly View view;
+        public IntReactiveProperty CurrentHp { get; }
 
     #endregion
 
     #region Constructor
 
-        public Model(View view)
+        public Model()
         {
-            this.view = view;
-            Health    = 100;
+            CurrentHp = new IntReactiveProperty(100);
         }
 
     #endregion
@@ -111,8 +107,7 @@ namespace UnityEffectArchitecture._MVC.Example
 
         public void ReduceHealth(int damage)
         {
-            Health -= damage;
-            view.UpdateHealth(Health);
+            CurrentHp.Value -= damage;
         }
 
     #endregion
