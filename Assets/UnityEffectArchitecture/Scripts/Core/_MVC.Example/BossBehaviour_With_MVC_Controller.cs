@@ -76,7 +76,7 @@ namespace UnityEffectArchitecture._MVC.Example
         public void UpdateHealth(int health)
         {
             bossUIPanel.UpdateHealthUI(health);
-            audioSystem.PlayHurtAudio();
+            audioSystem.PlayBossHurtAudio();
             effectSpawner.SpawnHurtEffect(gameObject);
         }
 

@@ -36,7 +36,7 @@ public class MVPExampleTests
         Assert.AreEqual(90 , bossBehaviourWithMvp.Health);
 
         bossUIPanel.Received(1).UpdateHealthUI(90);
-        audioSystem.Received(1).PlayHurtAudio();
+        audioSystem.Received(1).PlayBossHurtAudio();
         effectSpawner.Received(1).SpawnHurtEffect(bossBehaviourWithMvp.gameObject);
     }
 

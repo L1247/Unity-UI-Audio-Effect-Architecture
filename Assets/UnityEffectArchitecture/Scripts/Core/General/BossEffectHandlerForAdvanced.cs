@@ -32,7 +32,7 @@ namespace UnityEffectArchitecture.General
         public void BossHurtEffect(int currentHealth , GameObject boss)
         {
             bossUIPanel?.UpdateHealthUI(currentHealth);
-            audioSystem?.PlayHurtAudio();
+            audioSystem?.PlayBossHurtAudio();
             effectSpawner?.SpawnHurtEffect(boss);
         }
 

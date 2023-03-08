@@ -10,7 +10,7 @@ namespace UnityEffectArchitecture.General
     {
     #region Public Methods
 
-        void PlayHurtAudio();
+        void PlayBossHurtAudio();
 
     #endregion
     }
@@ -29,7 +29,7 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void PlayHurtAudio()
+        public void PlayBossHurtAudio()
         {
             audioSource.PlayOneShot(damageClip);
         }

@@ -60,7 +60,7 @@ namespace UnityEffectArchitecture._02_Intermediate
         #region Defensive Programming , Do effect stuffs
 
             bossUIPanel?.UpdateHealthUI(health);
-            audioSystem?.PlayHurtAudio();
+            audioSystem?.PlayBossHurtAudio();
             effectSpawner?.SpawnHurtEffect(gameObject);
 
         #endregion

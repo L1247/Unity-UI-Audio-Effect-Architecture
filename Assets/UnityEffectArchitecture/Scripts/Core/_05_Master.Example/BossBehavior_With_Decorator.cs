@@ -1,6 +1,7 @@
 #region
 
 using UnityEffectArchitecture.General;
+using Zenject;
 
 #endregion
 
@@ -16,15 +17,23 @@ namespace UnityEffectArchitecture._05_Master
 
     #region Private Variables
 
-        private int health = 100;
+        private int               health = 100;
+        private BossEffectHandler bossEffectHandler;
 
     #endregion
 
     #region Public Methods
 
+        [Inject]
+        public void Construct(BossEffectHandler bossEffectHandler)
+        {
+            this.bossEffectHandler = bossEffectHandler;
+        }
+
         public override void TakeDamage()
         {
             health -= 10;
+            bossEffectHandler.BossHurtEffect(health , gameObject);
         }
 
     #endregion
