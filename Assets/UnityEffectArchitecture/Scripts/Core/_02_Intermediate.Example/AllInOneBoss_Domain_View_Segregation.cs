@@ -1,6 +1,7 @@
 #region
 
 using UnityEffectArchitecture.General;
+using UnityEngine.Assertions;
 
 #endregion
 
@@ -47,6 +48,9 @@ namespace UnityEffectArchitecture._02_Intermediate
             this.bossUIPanel   = bossUIPanel;
             this.audioSystem   = audioSystem;
             this.effectSpawner = effectSpawner;
+            Assert.IsNotNull(this.bossUIPanel);
+            Assert.IsNotNull(this.audioSystem);
+            Assert.IsNotNull(this.effectSpawner);
         }
 
         public override void TakeDamage()
@@ -59,9 +63,9 @@ namespace UnityEffectArchitecture._02_Intermediate
 
         #region Defensive Programming , Do effect stuffs
 
-            bossUIPanel?.UpdateHealthUI(health);
-            audioSystem?.PlayBossHurtAudio();
-            effectSpawner?.SpawnHurtEffect(gameObject);
+            bossUIPanel.UpdateHealthUI(health);
+            audioSystem.PlayBossHurtAudio();
+            effectSpawner.SpawnHurtEffect(gameObject);
 
         #endregion
         }

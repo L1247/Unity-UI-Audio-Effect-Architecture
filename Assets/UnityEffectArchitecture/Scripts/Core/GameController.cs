@@ -26,6 +26,7 @@ namespace UnityEffectArchitecture.Scripts.Core
 
         private void Start()
         {
+            bossBehavior ??= FindFirstObjectByType<BossBehavior>();
             Assert.IsNotNull(bossBehavior , "bossBehavior is null");
             takeDamageButton.BindClick(() => bossBehavior.TakeDamage());
         }

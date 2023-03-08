@@ -169,13 +169,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1298597123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c5a08fc7c241898c392b9afd4f8b08, type: 3}
+  m_Script: {fileID: 11500000, guid: 33c1985127714835b61f4274b8979459, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  hurtClip: {fileID: 8300000, guid: b77160a11798cb642afd5cff733be759, type: 3}
-  healthAmountText: {fileID: 2025924643948088596}
-  hurtEffect: {fileID: 1781108399388101742, guid: a2eeb1498527e524f840a1e443f44705, type: 3}
 --- !u!1001 &2025924643948088595
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241,14 +237,3 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b752b07a15e4ea40812fa2f08bfff27, type: 3}
---- !u!114 &2025924643948088596 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2025924643387549085, guid: 2b752b07a15e4ea40812fa2f08bfff27, type: 3}
-  m_PrefabInstance: {fileID: 2025924643948088595}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

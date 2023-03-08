@@ -18,7 +18,6 @@ namespace UnityEffectArchitecture._04_EventDriven
 
     #region Private Variables
 
-        // [Inject]
         private IDomainEventBus domainEventBus;
 
         private int health = 100;
