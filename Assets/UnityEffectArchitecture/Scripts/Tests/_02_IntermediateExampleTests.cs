@@ -23,6 +23,7 @@ public class _02_IntermediateExampleTests
     public void TakeDamage()
     {
         var domainCouplingView = new GameObject().AddComponent<AllInOneBoss_Domain_View_Segregation>();
+        var bossPos            = domainCouplingView.gameObject.transform.position;
         var audioSystem        = Substitute.For<IAudioSystem>();
         var effectSpawner      = Substitute.For<IEffectSpawner>();
         var bossUIPanel        = Substitute.For<IBossUIPanel>();
@@ -33,7 +34,7 @@ public class _02_IntermediateExampleTests
         Assert.AreEqual(90 , domainCouplingView.Health);
         bossUIPanel.Received(1).UpdateHealthUI(90);
         audioSystem.Received(1).PlayBossHurtAudio();
-        effectSpawner.Received(1).SpawnHurtEffect(domainCouplingView.gameObject);
+        effectSpawner.Received(1).SpawnHurtEffect(bossPos);
     }
 
 #endregion

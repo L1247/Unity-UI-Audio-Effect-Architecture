@@ -10,7 +10,7 @@ namespace UnityEffectArchitecture.General
     {
     #region Public Methods
 
-        void BossHurtEffect(int currentHealth , GameObject boss);
+        void BossHurtEffect(int currentHealth , Vector2 bossPos);
 
     #endregion
     }

@@ -25,10 +25,10 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void BossHurtEffect(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , Vector2 bossPos)
         {
-            bossEffectHandler.BossHurtEffect(currentHealth , boss);
-            Debug.Log($"BossHurt - currentHealth: {currentHealth} , boss: {boss}");
+            bossEffectHandler.BossHurtEffect(currentHealth , bossPos);
+            Debug.Log($"BossHurt - currentHealth: {currentHealth} , bossPos: {bossPos}");
         }
 
     #endregion

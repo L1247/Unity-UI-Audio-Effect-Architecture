@@ -10,7 +10,7 @@ namespace UnityEffectArchitecture.General
     {
     #region Public Methods
 
-        void SpawnHurtEffect(GameObject go);
+        void SpawnHurtEffect(Vector2 pos);
 
     #endregion
     }
@@ -26,9 +26,9 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void SpawnHurtEffect(GameObject go)
+        public void SpawnHurtEffect(Vector2 pos)
         {
-            Instantiate((Object)hurtEffect , go.transform.position , Quaternion.identity);
+            Instantiate((Object)hurtEffect , pos , Quaternion.identity);
         }
 
     #endregion

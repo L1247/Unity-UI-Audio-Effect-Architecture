@@ -32,6 +32,7 @@ public class _05_MasterExampleTests
         var bossEffectHandlerEffect = new BossEffectHandler_Effect(effectSpawner , bossEffectHandlerUI);
 
         var bossBehavior_With_Decorator = new GameObject().AddComponent<BossBehavior_With_Decorator>();
+        var bossPos                     = bossBehavior_With_Decorator.gameObject.transform.position;
         bossBehavior_With_Decorator.Construct(bossEffectHandlerEffect);
 
         bossBehavior_With_Decorator.TakeDamage();
@@ -39,7 +40,7 @@ public class _05_MasterExampleTests
         Assert.AreEqual(90 , bossBehavior_With_Decorator.Health);
         audioSystem.Received(1).PlayBossHurtAudio();
         bossUIPanel.Received(1).UpdateHealthUI(90);
-        effectSpawner.Received(1).SpawnHurtEffect(bossBehavior_With_Decorator.gameObject);
+        effectSpawner.Received(1).SpawnHurtEffect(bossPos);
     }
 
 #endregion

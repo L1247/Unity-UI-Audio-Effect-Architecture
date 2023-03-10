@@ -35,7 +35,7 @@ namespace UnityEffectArchitecture._04_EventDriven
         public override void TakeDamage()
         {
             health -= 10;
-            domainEventBus.Post(new BossHurtEvent(health , gameObject));
+            domainEventBus.Post(new BossHurtEvent(health , transform.position));
         }
 
     #endregion

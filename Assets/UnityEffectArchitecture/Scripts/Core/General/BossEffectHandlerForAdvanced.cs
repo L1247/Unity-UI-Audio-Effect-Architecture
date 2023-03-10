@@ -29,11 +29,11 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void BossHurtEffect(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , Vector2 bossPos)
         {
             bossUIPanel?.UpdateHealthUI(currentHealth);
             audioSystem?.PlayBossHurtAudio();
-            effectSpawner?.SpawnHurtEffect(boss);
+            effectSpawner?.SpawnHurtEffect(bossPos);
         }
 
     #endregion

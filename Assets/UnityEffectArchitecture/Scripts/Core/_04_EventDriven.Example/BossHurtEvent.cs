@@ -11,17 +11,18 @@ namespace UnityEffectArchitecture._04_EventDriven
     {
     #region Public Variables
 
-        public GameObject GameObject    { get; }
-        public int        CurrentHealth { get; }
+        public int CurrentHealth { get; }
+
+        public Vector2 BossPos { get; }
 
     #endregion
 
     #region Constructor
 
-        public BossHurtEvent(int currentHealth , GameObject gameObject)
+        public BossHurtEvent(int currentHealth , Vector2 bossPos)
         {
             CurrentHealth = currentHealth;
-            GameObject    = gameObject;
+            BossPos       = bossPos;
         }
 
     #endregion

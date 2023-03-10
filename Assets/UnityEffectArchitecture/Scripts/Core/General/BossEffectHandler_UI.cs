@@ -27,9 +27,9 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void BossHurtEffect(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , Vector2 bossPos)
         {
-            bossEffectHandler.BossHurtEffect(currentHealth , boss);
+            bossEffectHandler.BossHurtEffect(currentHealth , bossPos);
             bossUIPanel.UpdateHealthUI(currentHealth);
         }
 

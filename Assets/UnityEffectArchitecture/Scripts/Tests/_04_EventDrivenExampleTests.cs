@@ -26,6 +26,7 @@ public class _04_EventDrivenExampleTests
         var bossBehaviourWithEventDriven = new GameObject().AddComponent<BossBehaviour_With_EventDriven>();
         var domainEventBus               = Substitute.For<IDomainEventBus>();
         bossBehaviourWithEventDriven.Construct(domainEventBus);
+        Vector2       bossPos       = bossBehaviourWithEventDriven.transform.position;
         BossHurtEvent bossHurtEvent = null;
         domainEventBus.Post(Arg.Do<BossHurtEvent>(evt => bossHurtEvent = evt));
 
@@ -36,7 +37,7 @@ public class _04_EventDrivenExampleTests
         domainEventBus.Received(1).Post(Arg.Is<DomainEvent>(d => d.GetType() == typeof(BossHurtEvent)));
         Assert.NotNull(bossHurtEvent);
         Assert.AreEqual(90 , bossHurtEvent.CurrentHealth);
-        Assert.AreEqual(bossBehaviourWithEventDriven.gameObject , bossHurtEvent.GameObject);
+        Assert.AreEqual(bossPos , bossHurtEvent.BossPos);
     }
 
 #endregion

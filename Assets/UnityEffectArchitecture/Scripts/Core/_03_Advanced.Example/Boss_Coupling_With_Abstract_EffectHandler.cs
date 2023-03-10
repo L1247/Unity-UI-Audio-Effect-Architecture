@@ -41,7 +41,7 @@ namespace UnityEffectArchitecture._03_Advanced
 
         #region Defensive Programming , Do effect stuffs
 
-            bossEffectHandler?.BossHurtEffect(Health , gameObject);
+            bossEffectHandler?.BossHurtEffect(Health , transform.position);
 
         #endregion
         }

@@ -29,7 +29,7 @@ namespace UnityEffectArchitecture._04_EventDriven
 
         private void OnBossHurt(BossHurtEvent hurtEvent)
         {
-            bossEffectHandler.BossHurtEffect(hurtEvent.CurrentHealth , hurtEvent.GameObject);
+            bossEffectHandler.BossHurtEffect(hurtEvent.CurrentHealth , hurtEvent.BossPos);
         }
 
     #endregion

@@ -33,7 +33,7 @@ namespace UnityEffectArchitecture._05_Master
         public override void TakeDamage()
         {
             health -= 10;
-            bossEffectHandler.BossHurtEffect(health , gameObject);
+            bossEffectHandler.BossHurtEffect(health , transform.position);
         }
 
     #endregion

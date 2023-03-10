@@ -29,6 +29,7 @@ public class MVCExampleTests
         var bossUIPanel   = Substitute.For<IBossUIPanel>();
 
         var bossBehaviourWithMvc = new GameObject().AddComponent<BossBehaviour_With_MVC_Controller>();
+        var bossPos              = bossBehaviourWithMvc.gameObject.transform.position;
         bossBehaviourWithMvc.Init(audioSystem , effectSpawner , bossUIPanel);
 
         bossBehaviourWithMvc.TakeDamage();
@@ -37,7 +38,7 @@ public class MVCExampleTests
 
         bossUIPanel.Received(1).UpdateHealthUI(90);
         audioSystem.Received(1).PlayBossHurtAudio();
-        effectSpawner.Received(1).SpawnHurtEffect(bossBehaviourWithMvc.gameObject);
+        effectSpawner.Received(1).SpawnHurtEffect(bossPos);
     }
 
 #endregion

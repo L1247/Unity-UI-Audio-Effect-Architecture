@@ -27,10 +27,10 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void BossHurtEffect(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , Vector2 bossPos)
         {
-            bossEffectHandler.BossHurtEffect(currentHealth , boss);
-            effectSpawner.SpawnHurtEffect(boss);
+            bossEffectHandler.BossHurtEffect(currentHealth , bossPos);
+            effectSpawner.SpawnHurtEffect(bossPos);
         }
 
     #endregion

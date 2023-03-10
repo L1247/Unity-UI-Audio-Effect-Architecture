@@ -24,11 +24,12 @@ public class _03_AdvancedExampleTests
     public void TakeDamage()
     {
         var bossCouplingWithAbstractEffect = new GameObject().AddComponent<Boss_Coupling_With_Abstract_EffectHandler>();
+        var bossPos                        = bossCouplingWithAbstractEffect.gameObject.transform.position;
         var bossEffectHandler              = Substitute.For<BossEffectHandler>();
         bossCouplingWithAbstractEffect.Construct(bossEffectHandler);
         bossCouplingWithAbstractEffect.TakeDamage();
         Assert.AreEqual(90 , bossCouplingWithAbstractEffect.Health);
-        bossEffectHandler.Received(1).BossHurtEffect(90 , bossCouplingWithAbstractEffect.gameObject);
+        bossEffectHandler.Received(1).BossHurtEffect(90 , bossPos);
     }
 
 #endregion

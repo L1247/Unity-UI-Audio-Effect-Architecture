@@ -25,7 +25,7 @@ namespace UnityEffectArchitecture.General
 
     #region Public Methods
 
-        public void BossHurtEffect(int currentHealth , GameObject boss)
+        public void BossHurtEffect(int currentHealth , Vector2 bossPos)
         {
             audioSystem.PlayBossHurtAudio();
         }

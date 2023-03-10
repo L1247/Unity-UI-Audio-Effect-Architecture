@@ -80,7 +80,7 @@ namespace UnityEffectArchitecture.MVP.Example
         {
             bossUIPanel.UpdateHealthUI(health);
             audioSystem.PlayBossHurtAudio();
-            effectSpawner.SpawnHurtEffect(gameObject);
+            effectSpawner.SpawnHurtEffect(gameObject.transform.position);
         }
 
     #endregion

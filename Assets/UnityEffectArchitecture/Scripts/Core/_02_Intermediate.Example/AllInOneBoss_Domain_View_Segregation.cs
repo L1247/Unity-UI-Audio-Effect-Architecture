@@ -65,7 +65,7 @@ namespace UnityEffectArchitecture._02_Intermediate
 
             bossUIPanel.UpdateHealthUI(health);
             audioSystem.PlayBossHurtAudio();
-            effectSpawner.SpawnHurtEffect(gameObject);
+            effectSpawner.SpawnHurtEffect(transform.position);
 
         #endregion
         }
